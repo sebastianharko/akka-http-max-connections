@@ -32,7 +32,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: z
+  name: akka
 spec:
   selector:
     app: http

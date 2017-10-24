@@ -2,7 +2,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: z
+  name: golang 
 spec:
   selector:
     app: http
