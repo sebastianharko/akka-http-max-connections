@@ -14,6 +14,8 @@ libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3"
 
 libraryDependencies += "com.typesafe.akka" %% "akka-slf4j" % "2.5.6"
 
+fork := true
+
 enablePlugins(JavaAppPackaging)
 
 dockerEntrypoint ++= Seq(
