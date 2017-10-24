@@ -2,16 +2,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: web
+  name: golang-deployment
 spec:
   replicas: 4
   template:
     metadata:
       labels:
-        app: http
+        app: golang-http
     spec:
       containers:
-      - name: twopc
+      - name: golang-hello-world
         image: sebastianharko/golang-hello-world:latest
         imagePullPolicy: Always
         ports:
@@ -23,4 +23,18 @@ spec:
           limits:
             cpu: 5
             memory: 4Gi
-
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: golang
+spec:
+  selector:
+    app: golang-http
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+  loadBalancerSourceRanges:
+    - 0.0.0.0/0

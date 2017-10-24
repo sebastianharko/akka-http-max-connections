@@ -2,17 +2,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: web
+  name: akka-deployment
 spec:
   replicas: 5
   template:
     metadata:
       labels:
-        app: http
+        app: akka-http
     spec:
       containers:
-      - name: twopc
-        image: sebastianharko/2pc:6.9
+      - name: akka-http-max-connections
+        image: sebastianharko/akka-http-max-connections:latest
         imagePullPolicy: Always
         env:
         - name: POD_IP
@@ -35,7 +35,7 @@ metadata:
   name: akka
 spec:
   selector:
-    app: http
+    app: akka-http
   ports:
     - protocol: TCP
       port: 8080
