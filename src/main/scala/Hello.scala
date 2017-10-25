@@ -3,6 +3,7 @@ package app
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
+import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.Directives.{complete, get, path, _}
 import akka.stream.{ActorMaterializer, ActorMaterializerSettings}
 
@@ -20,9 +21,15 @@ object Hello extends App {
         "pong"
       }
     }
+  } ~ path("isalive") {
+    get {
+      complete {
+        StatusCodes.OK
+      }
+    }
   }
 
-  val bindingFuture = Http().bindAndHandle(route, scala.sys.env.getOrElse("POD_IP", "0.0.0.0"), 8080)
+  val bindingFuture = Http().bindAndHandle(route, "127.0.0.1", 9090)
 
 
 }

@@ -16,9 +16,9 @@ spec:
         imagePullPolicy: Always
         env:
         - name: MAX_CONNECTIONS
-          value: "65536"
+          value: "1024"
         - name: BACKLOG
-          value: "65536"
+          value: "256"
         - name: POD_IP
           valueFrom:
             fieldRef:
