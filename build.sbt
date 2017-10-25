@@ -18,9 +18,3 @@ fork := true
 
 enablePlugins(JavaServerAppPackaging)
 
-dockerEntrypoint ++= Seq(
-  "-J-Xms512m",
-  "-J-Xmx4g",
-  "-J-XX:+PrintFlagsFinal",
-  "-J-Djava.net.preferIPv4Stack=true"
-)
