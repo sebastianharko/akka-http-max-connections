@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: akka-http-max-connections
-        image: sebastianharko/akka-http-max-connections:latest
+        image: sebastianharko/akka-http-max-connections:0.1
         imagePullPolicy: Always
         env:
         - name: POD_IP
