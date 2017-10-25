@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: akka-deployment
 spec:
-  replicas: 5
+  replicas: 1
   template:
     metadata:
       labels:
