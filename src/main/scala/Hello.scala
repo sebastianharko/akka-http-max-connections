@@ -4,13 +4,13 @@ package app
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.Directives.{complete, get, path, _}
-import akka.stream.{ActorMaterializer}
+import akka.stream.{ActorMaterializer, ActorMaterializerSettings}
 
 object Hello extends App {
 
   implicit val system = ActorSystem("minimal")
 
-  implicit val materializer: ActorMaterializer = ActorMaterializer()
+  implicit val materializer: ActorMaterializer = ActorMaterializer(ActorMaterializerSettings(system))
 
   import system.dispatcher
 
