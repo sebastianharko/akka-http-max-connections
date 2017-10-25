@@ -15,6 +15,8 @@ spec:
         image: sebastianharko/akka-http-max-connections:0.1
         imagePullPolicy: Always
         env:
+        - name: MAX_CONNECTIONS
+        - value: "1024"
         - name: POD_IP
           valueFrom:
             fieldRef:
