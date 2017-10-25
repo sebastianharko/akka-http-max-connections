@@ -16,9 +16,11 @@ libraryDependencies += "com.typesafe.akka" %% "akka-slf4j" % "2.5.6"
 
 fork := true
 
-enablePlugins(JavaAppPackaging)
+enablePlugins(JavaServerAppPackaging)
 
 dockerEntrypoint ++= Seq(
-  "-Xms512m",
-  "-Xmx4g"
+  "-J-Xms512m",
+  "-J-Xmx4g",
+  "-J-XX:+PrintFlagsFinal",
+  "-J-Djava.net.preferIPv4Stack=true"
 )
