@@ -11,8 +11,8 @@ spec:
         app: golang-http
     spec:
       containers:
-      - name: golang-hello-world
-        image: sebastianharko/golang-hello-world:latest
+      - name: golang-ping-pong
+        image: sebastianharko/golang-ping-pong:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
