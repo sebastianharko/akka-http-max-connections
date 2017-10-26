@@ -4,6 +4,7 @@ package app
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.StatusCodes
+import akka.http.scaladsl.model.headers.Connection
 import akka.http.scaladsl.server.Directives.{complete, get, path, _}
 import akka.stream.{ActorMaterializer, ActorMaterializerSettings}
 
@@ -17,8 +18,10 @@ object Hello extends App {
 
   val route = path("ping") {
     get {
-      complete {
-        "pong"
+      respondWithHeader(Connection("close")) {
+        complete {
+          "pong"
+        }
       }
     }
   } ~ path("isalive") {
