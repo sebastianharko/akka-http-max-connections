@@ -17,7 +17,7 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/* && \
 	rm -rf /var/cache/oracle-jdk8-installer;
 
-RUN apt-get update && apt-get -y install unzip
+RUN apt-get update && apt-get -y install unzip && apt-get -y install lsof iproute2
 
 RUN apt-get update && apt-get -y install haproxy
 
