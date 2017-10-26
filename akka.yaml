@@ -16,15 +16,15 @@ spec:
         imagePullPolicy: Always
         env:
         - name: MAX_CONNECTIONS
-          value: "128"
+          value: "4096"
         - name: BACKLOG
-          value: "256"
+          value: "1024"
         - name: POD_IP
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
         ports:
-        - containerPort: 8080
+        - containerPort: 9090
         resources:
           requests:
             cpu: 5
@@ -42,8 +42,8 @@ spec:
     app: akka-http
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 9090
+      targetPort: 9090
   type: LoadBalancer
   loadBalancerSourceRanges:
     - 0.0.0.0/0

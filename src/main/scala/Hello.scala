@@ -32,7 +32,7 @@ object Hello extends App {
     }
   }
 
-  val bindingFuture = Http().bindAndHandle(route, "127.0.0.1", 9090)
+  val bindingFuture = Http().bindAndHandle(route, sys.env("POD_IP"), 9090)
 
 
 }
