@@ -24,15 +24,9 @@ object Hello extends App {
         }
       }
     }
-  } ~ path("isalive") {
-    get {
-      complete {
-        StatusCodes.OK
-      }
-    }
   }
 
-  val bindingFuture = Http().bindAndHandle(route, sys.env("POD_IP"), 9090)
+  val bindingFuture = Http().bindAndHandle(route, sys.env("POD_IP"), 8080)
 
 
 }

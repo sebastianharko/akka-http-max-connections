@@ -3,22 +3,24 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: akka-deployment
+  annotations:
+    security.alpha.kubernetes.io/sysctls: net.core.somaxconn=262144
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         app: akka-http
-    spec:
+    spec: 
       containers:
       - name: akka-http-max-connections
         image: sebastianharko/akka-http-max-connections:0.1
         imagePullPolicy: Always
         env:
         - name: MAX_CONNECTIONS
-          value: "102400"
-        - name: BACKLOG
           value: "10240"
+        - name: BACKLOG
+          value: "1000"
         - name: POD_IP
           valueFrom:
             fieldRef:

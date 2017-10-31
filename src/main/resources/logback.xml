@@ -7,14 +7,6 @@
         </encoder>
     </appender>
 
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>log.txt </file>
-        <append>true</append>
-        <encoder>
-            <pattern>[ %highlight(%-5level)] %red([%date{dd MMM yyyy;HH:mm:ss.SSS}]) %yellow([%logger{0}]) %cyan(%X{akkaSource}) - %boldBlue(%msg%n)</pattern>
-        </encoder>
-    </appender>
-
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
